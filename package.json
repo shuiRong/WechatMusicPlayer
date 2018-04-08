@@ -1,0 +1,21 @@
+{
+  "name": "lotteryHelper",
+  "version": "1.0.0",
+  "description": "彩票助手",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webuild dev --src ./src --output ./dist",
+    "build": "webuild build --src ./src --output ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://23.106.138.225:3000/X/lotteryHelper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@axetroy/webuild": "^0.0.1"
+  },
+  "license": "ISC"
+}

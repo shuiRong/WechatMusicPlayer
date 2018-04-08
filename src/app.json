@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/play/play",
+    "pages/collection/collection",
+    "pages/bluetooth/bluetooth",
+    "pages/test/test"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "彩票管家",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#c0cbd4",
+    "selectedColor": "#ffd600",
+    "backgroundColor": "#fff",
+    "list": [{
+        "iconPath": "img/mybook.png",
+        "selectedIconPath": "img/selectedMybook.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "img/book.png",
+        "selectedIconPath": "img/selectedBook.png",
+        "pagePath": "pages/play/play",
+        "text": "正在播放"
+      },
+      {
+        "iconPath": "img/icon_range.png",
+        "selectedIconPath": "img/icon_range_click.png",
+        "pagePath": "pages/bluetooth/bluetooth",
+        "text": "蓝牙"
+      }, {
+        "iconPath": "img/icon_classification.png",
+        "selectedIconPath": "img/icon_classification_click.png",
+        "pagePath": "pages/collection/collection",
+        "text": "我的收藏"
+      }, {
+        "iconPath": "img/icon_classification.png",
+        "selectedIconPath": "img/icon_classification_click.png",
+        "pagePath": "pages/test/test",
+        "text": "我的收藏"
+      }
+    ]
+  }
+}

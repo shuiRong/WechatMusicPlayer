@@ -1,0 +1,18 @@
+<view class="container">
+  <view class='list' wx:for='{{list}}'>
+    <view class='left'>
+      <text>{{item.name}}</text>
+      <view class='author'>
+        <block wx:for='{{item.ar}}'>
+          <block wx:if='{{index < 5}}'>
+            {{item.name}}
+          </block>
+        </block>
+      </view>
+    </view>
+    <view class='play' bindtap='toPlay' data-id='{{item.id}}' data-title='{{item.name}}' data-singer='{{item.ar}}' data-album='{{item.al.name}}'
+      data-picurl='{{item.al.picUrl}}'>
+      播放
+    </view>
+  </view>
+</view>

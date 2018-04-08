@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="container">
+  <view wx:for='{{rankings}}' wx:key='item.name'>
+    <image class="userinfo-avatar" src="{{avatarUrl}}" background-size="cover"></image>
+    <text class='name'>{{item.name}}</text>
+    <text>{{item.number}}</text>
+  </view>
+</view>

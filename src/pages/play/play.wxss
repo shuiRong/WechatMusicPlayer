@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 40rpx 320rpx 40rpx;
+}
+
+.container .info {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+}
+
+.singer,
+.album {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.singer .h4,
+.album .h4 {
+  margin-right: 7rpx;
+  font-weight: bold;
+}
+
+.info {
+  width: 100%;
+  margin: 50rpx 0;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.info>text {
+  width: fit-content;
+  margin: auto;
+  font-size: 35rpx;
+  font-weight: bold;
+}
+
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0;
+  background: #fff;
+  height: 200rpx;
+  padding: 20rpx 40rpx 0 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 -10px 12px 0 rgba(0, 0, 0, .1);
+}
+
+.footer>view {
+  width: 100%;
+}
+
+.footer .slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.slider>text {
+  font-size: 30rpx;
+  color: grey;
+}
+
+.footer .slider slider {
+  width: 80%;
+}
+
+.footer .control {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.footer .side {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.footer .center {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.footer .like {
+  position: absolute;
+  right: -100rpx;
+  bottom: 8rpx;
+}
