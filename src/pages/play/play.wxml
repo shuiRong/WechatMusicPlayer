@@ -26,7 +26,7 @@
     <view>
       <view class='slider'>
         <text>{{currentTime}}</text>
-        <slider bindchange="sliderChange" min="0" max="100" value='{{sliderValue}}' />
+        <slider bindtouchstart='touchStart' bindtouchend='touchEnd' bindchange="sliderChange" min="0" max="100" value='{{sliderValue}}' />
         <text>{{endTime}}</text>
       </view>
       <view class='control'>

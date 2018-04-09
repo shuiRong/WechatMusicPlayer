@@ -11,7 +11,7 @@
       </view>
     </view>
     <view class='play' bindtap='toPlay' data-id='{{item.id}}' data-title='{{item.name}}' data-singer='{{item.ar}}' data-album='{{item.al.name}}'
-      data-picurl='{{item.al.picUrl}}'>
+      data-coverImgUrl='{{item.al.picUrl}}'>
       播放
     </view>
   </view>

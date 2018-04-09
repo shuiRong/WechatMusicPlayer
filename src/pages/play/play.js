@@ -12,7 +12,8 @@ Page({
     duration: 0, // 歌曲总时长，秒
     playIcon: '/img/pause.svg', // 播放图标
     likedIcon: '/img/unliked.svg', // 收藏，喜欢 图标
-    sliderValue: 23
+    sliderValue: 23,
+    sliderIsChanging: false
   },
   onShow: function () {
     const global = app.globalData;
@@ -25,7 +26,7 @@ Page({
         title: info.title,
         album: info.album,
         singer: info.singer,
-        coverImgUrl: info.picUrl
+        coverImgUrl: info.coverImgUrl
       })
 
       this.setBAM(info);
@@ -160,7 +161,7 @@ Page({
         res = res.data.songs[0]
         _this.setBAM({
           title: res.name,
-          picUrl: res.al.picUrl,
+          coverImgUrl: res.al.picUrl,
           singer: res.ar,
           album: res.al.name
         })
@@ -223,7 +224,7 @@ Page({
         res = res.data.songs[0]
         _this.setBAM({
           title: res.name,
-          picUrl: res.al.picUrl,
+          coverImgUrl: res.al.picUrl,
           singer: res.ar,
           album: res.al.name
         })
@@ -259,7 +260,16 @@ Page({
       seconds = '0' + seconds
     }
 
-    bam.seek(currentTime);
+    // 暂停时候，不能改变音乐的进度，所以只能先播放，再暂停了
+
+    if (bam.paused) {
+      bam.play();
+      bam.seek(currentTime);
+      bam.pause();
+    } else {
+      bam.seek(currentTime);
+    }
+
     this.setData({
       currentTime: Math.floor(currentTime / 60) + ':' + seconds
     })
@@ -271,20 +281,26 @@ Page({
     bam.title = data.title;
     bam.album = data.album;
     bam.singer = data.singer;
-    bam.coverImgUrl = data.picUrl;
+    bam.coverImgUrl = data.coverImgUrl;
 
     this.setData({
       title: data.title,
       album: data.album,
       singer: data.singer,
-      coverImgUrl: data.picUrl
+      coverImgUrl: data.coverImgUrl
     });
   },
   setMp3: function (mp3) {
     // 设置背景音乐的相关属性
     const bam = wx.getBackgroundAudioManager();
     const _this = this;
-    bam.onTimeUpdate(function (item) {
+
+    bam.src = mp3;
+    setTimeout(() => {
+      _this.setDuration(bam.duration)
+    }, 500)
+
+    bam.onTimeUpdate(function () {
       // 实时更新slider长度，和左侧显示时间
       const currentTime = Math.floor(bam.currentTime);
 
@@ -294,18 +310,51 @@ Page({
         seconds = '0' + seconds
       }
 
-      setTimeout(() => {
+      // console.log('currentTime-->', currentTime)
+      if (!_this.data.sliderIsChanging) {
+        // setTimeout(() => {
         _this.setData({
           currentTime: Math.floor(currentTime / 60) + ':' + seconds,
-          sliderValue: currentTime
+          sliderValue: Math.floor(currentTime / _this.data.duration * 100)
         })
-      }, 100)
-
+        // }, 100)
+      }
     })
-    bam.src = mp3;
-    setTimeout(() => {
-      _this.setDuration(bam.duration)
-    }, 500)
+
+    bam.onEnded(function () {
+      const playList = app.globalData.playList;
+      const id = app.globalData.id;
+      // 音乐自动停止，如果列表中下一首存在，继续播放下一首
+
+      // 当前音乐在播放列表的下标
+      const index = playList.findIndex(item => {
+        return item.id === id;
+      });
+
+      // 如果列表中下一首存在
+      const nextSong = playList[index + 1]
+      if (nextSong) {
+        _this.setBAM(nextSong);
+        _this.getLyric(nextSong.id);
+        // 获取歌曲链接
+        wx.request({
+          url: 'http://localhost:3000/music/url?id=' + nextSong.id,
+          success: function (res) {
+            let mp3 = res.data.data[0].url
+            _this.setMp3(mp3)
+            _this.setData({
+              likedIcon: '/img/liked.svg'
+            })
+          },
+          fail: function (err) {
+            // 设置不喜欢的图标
+            _this.setData({
+              likedIcon: '/img/unliked.svg'
+            })
+          }
+        });
+      }
+    })
   },
   setDuration: function (duration) {
     // 设置歌曲时长，和转换后的分钟数（显示时）
@@ -351,5 +400,15 @@ Page({
     this.setData({
       likedIcon: '/img/unliked.svg'
     });
-  }
+  },
+  touchStart: function () {
+    this.setData({
+      sliderIsChanging: true
+    })
+  },
+  touchEnd: function () {
+    this.setData({
+      sliderIsChanging: false
+    })
+  },
 })

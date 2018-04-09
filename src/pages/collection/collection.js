@@ -4,21 +4,10 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Profile',
-    coin: 99999,
-    grade: '大师',
-    dayOfSignIn: 9999,
+    likedList: [],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  signInHandler: function () {
-    // 签到逻辑
-    wx.showToast({
-      title: '签到成功',
-      icon: 'success',
-      duration: 1000
-    });
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -53,6 +42,40 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  onShow: function () {
+    const likedList = app.globalData.likedList;
+    this.setData({
+      likedList: likedList
+    })
+  },
+  toPlay: function (e) {
+    let global = app.globalData;
+    let id = e.currentTarget.dataset.id;
+    let playList = global.playList;
+    let likedList = global.likedList;
+
+    // 如果当前歌曲存在于列表中，数据直接用
+    let tempSong = likedList.find(item => item.id === id);
+    console.log('tempSong-->', tempSong)
+    global.info = tempSong
+
+    // 播放列表中不存在的话，添加进去
+    if (!playList.find(item => item.id === id)) {
+      playList.push(song);
+    }
+    // 更新全局变量 id
+    global.id = id;
+
+    wx.switchTab({
+      url: '/pages/play/play',
+      success: function (res) {
+        console.log('wx.switchTab')
+      },
+      fail: function (err) {
+        console.log('跳转失败', err)
+      }
     })
   }
 })

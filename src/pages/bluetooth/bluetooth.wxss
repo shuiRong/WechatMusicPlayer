@@ -3,32 +3,3 @@
   flex-direction: column;
   align-items: center;
 }
-
-.container>text {
-  font-size: 30rpx;
-  margin-bottom: 20rpx;
-  padding-bottom: 10rpx;
-  border-bottom: 5rpx solid #ddd;
-}
-
-.container view {
-  width: 60%;
-  margin-top: 20rpx;
-  display: flex;
-  align-items: center;
-  padding: 20rpx;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-}
-
-.container view:last-child {
-  margin-bottom: 100rpx;
-}
-
-.userinfo-avatar {
-  width: 100rpx;
-  height: 100rpx;
-}
-
-.name {
-  margin: 0 150rpx 0 20rpx;
-}

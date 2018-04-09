@@ -7,31 +7,22 @@
     </view>
     <view class='userinfo-right'>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <view>
-        <text>等级： {{grade}}</text>
-        <text>积分： {{coin}}</text>
-      </view>
     </view>
   </view>
-  <view class='sign-in'>
-    <text bindtap='signInHandler'>我要打卡</text>
-    <text>已打卡 {{dayOfSignIn}} 天</text>
-  </view>
-  <navigator class='list' url='/pages/history/history' hover-class="none">
-    <text>往期记录</text>
-    <image src="../../img/arrow_right.png" background-size="cover"></image>
-  </navigator>
-  <navigator class='list' url='/pages/share/share' hover-class="none">
-    <text>我的分享</text>
-    <image src="../../img/arrow_right.png" background-size="cover"></image>
-  </navigator>
-  <navigator class='list' url='/pages/store/store' hover-class="none">
-    <text>积分商城</text>
-    <image src="../../img/arrow_right.png" background-size="cover"></image>
-  </navigator>
-  <navigator class='list last' url='/pages/index/index' hover-class="none" open-type="switchTab">
-    <text>我的资料</text>
-    <image src="../../img/arrow_right.png" background-size="cover"></image>
-  </navigator>
 
+  <view class='list' wx:for='{{likedList}}'>
+    <view class='left'>
+      <text>{{item.title}}</text>
+      <view class='author'>
+        <block wx:for='{{item.singer}}'>
+          <block wx:if='{{index < 5}}'>
+            {{item.name}}
+          </block>
+        </block>
+      </view>
+    </view>
+    <view class='play' bindtap='toPlay' data-id='{{item.id}}'>
+      播放
+    </view>
+  </view>
 </view>

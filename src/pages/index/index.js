@@ -35,7 +35,6 @@ Page({
 
     // 如果当前歌曲存在于播放列表中，那么数据直接用
     let tempSong = playList.filter(item => item.id === id);
-    console.log('tempSong-->', tempSong)
     if (tempSong.length === 1) {
       global.info = tempSong[0]
     } else {
@@ -45,14 +44,13 @@ Page({
         title: e.currentTarget.dataset.title,
         singer: e.currentTarget.dataset.singer,
         album: e.currentTarget.dataset.album,
-        picUrl: e.currentTarget.dataset.picurl
+        coverImgUrl: e.currentTarget.dataset.coverimgurl
       }
       global.info = song;
       playList.push(song);
     }
     // 更新全局变量 id
     global.id = id;
-    console.log('playList-->', playList)
 
     wx.switchTab({
       url: '/pages/play/play',
