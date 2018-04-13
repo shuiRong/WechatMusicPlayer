@@ -34,8 +34,16 @@ App({
   },
   globalData: {
     userInfo: null,
-    id: undefined, // 全局音乐id
-    info: null, //歌曲信息
+    id: 452986458, // 全局音乐id
+    info: {
+      "id": 452986458,
+      "title": "红昭愿",
+      "singer": [{
+        "name": "音阙诗听",
+      }],
+      "album": "红昭愿",
+      "coverImgUrl": "http://p1.music.126.net/8ltR3o9R8uJ9_5Cc71cDhA==/109951162951242154.jpg"
+    }, //歌曲信息
     playList: [], // 音乐播放列表 对象数组 用来上一首下一首
     likedList: [], // 我喜欢的歌曲列表 对象数组 属性和playList一样
   }

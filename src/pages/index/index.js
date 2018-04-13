@@ -24,7 +24,6 @@ Page({
         })
       },
       fail: function (err) {
-        console.log(err)
       }
     })
   },
@@ -55,10 +54,8 @@ Page({
     wx.switchTab({
       url: '/pages/play/play',
       success: function (res) {
-        console.log('wx.switchTab')
       },
       fail: function (err) {
-        console.log('跳转失败', err)
       }
     })
   }

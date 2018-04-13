@@ -95,3 +95,7 @@
   right: -100rpx;
   bottom: 8rpx;
 }
+
+.lyric text {
+  text-align: right;
+}

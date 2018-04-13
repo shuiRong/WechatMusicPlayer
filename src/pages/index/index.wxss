@@ -2,6 +2,14 @@
   padding: 0 40rpx;
 }
 
+.search {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+  margin: 10rpx;
+  padding: 20rpx 25rpx;
+  margin-bottom: 35rpx;
+  color: grey;
+}
+
 .list {
   margin: 10rpx;
   margin-bottom: 25rpx;

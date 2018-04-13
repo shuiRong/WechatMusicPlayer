@@ -4,7 +4,7 @@
     "pages/play/play",
     "pages/collection/collection",
     "pages/bluetooth/bluetooth",
-    "pages/test/test"
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -38,11 +38,6 @@
         "selectedIconPath": "img/icon_classification_click.png",
         "pagePath": "pages/collection/collection",
         "text": "我的收藏"
-      }, {
-        "iconPath": "img/icon_classification.png",
-        "selectedIconPath": "img/icon_classification_click.png",
-        "pagePath": "pages/test/test",
-        "text": "测试"
       }
     ]
   }

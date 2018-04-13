@@ -31,10 +31,10 @@ Page({
 
       this.setBAM(info);
     } else {
-      let title = '此时此刻';
-      let album = '此时此刻';
-      let singer = '许巍';
-      let coverImgUrl = 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000';
+      let title = '红昭愿';
+      let album = '红昭愿';
+      let singer = '音阙诗听';
+      let coverImgUrl = 'http://p1.music.126.net/8ltR3o9R8uJ9_5Cc71cDhA==/109951162951242154.jpg';
 
       this.setData({
         title,
@@ -105,12 +105,10 @@ Page({
       url: 'http://localhost:3000/lyric?id=' + id,
       success: function (res) {
         _this.setData({
-          lyric: res.data.lrc.lyric,
+          lyric: res.data.lrc.lyric.replace(/\[.*\]/g, ''),
         })
       },
-      fail: function (err) {
-        console.log(err)
-      }
+      fail: function (err) {}
     })
   },
   mainHandler: function () {
@@ -166,9 +164,7 @@ Page({
           album: res.al.name
         })
       },
-      fail: function (err) {
-        console.log(err)
-      }
+      fail: function (err) {}
     });
     // 获取歌曲mp3 链接
     wx.request({
@@ -179,9 +175,7 @@ Page({
           _this.setMp3(mp3)
         }
       },
-      fail: function (err) {
-        console.log(err)
-      }
+      fail: function (err) {}
     });
     this.getLyric(prevSongID);
   },
@@ -229,9 +223,7 @@ Page({
           album: res.al.name
         })
       },
-      fail: function (err) {
-        console.log(err)
-      }
+      fail: function (err) {}
     });
     // 获取歌曲mp3 链接
     wx.request({
@@ -242,9 +234,7 @@ Page({
           _this.setMp3(mp3)
         }
       },
-      fail: function (err) {
-        console.log(err)
-      }
+      fail: function (err) {}
     });
     this.getLyric(nextSongID);
   },
@@ -310,14 +300,11 @@ Page({
         seconds = '0' + seconds
       }
 
-      // console.log('currentTime-->', currentTime)
       if (!_this.data.sliderIsChanging) {
-        // setTimeout(() => {
         _this.setData({
           currentTime: Math.floor(currentTime / 60) + ':' + seconds,
           sliderValue: Math.floor(currentTime / _this.data.duration * 100)
         })
-        // }, 100)
       }
     })
 

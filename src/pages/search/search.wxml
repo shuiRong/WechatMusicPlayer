@@ -1,14 +1,12 @@
 <view class="container">
   <view class="search">
-    <navigator url='/pages/search/search' hover-class="navigator-hover">
-      搜索音乐
-    </navigator>
+    <input bindconfirm='startSearch' bindinput='startSearch' placeholder="搜索音乐" auto-focus/>
   </view>
   <view class='list' wx:for='{{list}}'>
     <view class='left'>
       <text>{{item.name}}</text>
       <view class='author'>
-        <block wx:for='{{item.ar}}'>
+        <block wx:for='{{item.artists}}'>
           <block wx:if='{{index < 5}}'>
             {{item.name}}
           </block>

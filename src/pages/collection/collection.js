@@ -58,7 +58,6 @@ Page({
 
     // 如果当前歌曲存在于列表中，数据直接用
     let tempSong = likedList.find(item => item.id === id);
-    console.log('tempSong-->', tempSong)
     global.info = tempSong
 
     // 播放列表中不存在的话，添加进去
@@ -71,10 +70,8 @@ Page({
     wx.switchTab({
       url: '/pages/play/play',
       success: function (res) {
-        console.log('wx.switchTab')
       },
       fail: function (err) {
-        console.log('跳转失败', err)
       }
     })
   }
