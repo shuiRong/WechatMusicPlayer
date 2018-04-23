@@ -45,6 +45,17 @@ App({
       "coverImgUrl": "http://p1.music.126.net/8ltR3o9R8uJ9_5Cc71cDhA==/109951162951242154.jpg"
     }, //歌曲信息
     playList: [], // 音乐播放列表 对象数组 用来上一首下一首
-    likedList: [], // 我喜欢的歌曲列表 对象数组 属性和playList一样
+    likedList: [{
+      "id": 526464293,
+      "coverImgUrl": "http://p1.music.126.net/84FJjDgb51TmRqixaUpshg==/109951163094476391.jpg",
+      "title": "空空如也 ",
+      "singer": [{
+        "id": 9255,
+        "name": "任然",
+        "tns": [],
+        "alias": []
+      }],
+      "album": "空空如也"
+    }], // 我喜欢的歌曲列表 对象数组 属性和playList一样
   }
 })

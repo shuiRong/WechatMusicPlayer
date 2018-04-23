@@ -1,6 +1,16 @@
 <view class="container">
   <view class="search">
-    <input bindconfirm='startSearch' bindinput='startSearch' placeholder="搜索音乐" auto-focus/>
+    <input bindconfirm='startSearch' placeholder="搜索音乐" auto-focus/>
+  </view>
+  <view class='ranking'>
+    <view bindtap='ranking1'>云音乐热歌榜</view>
+    <view bindtap='ranking5'>UK排行榜周榜</view>
+    <view bindtap='ranking8'>iTunes榜</view>
+    <view bindtap='ranking6'>美国Billboard周榜</view>
+    <view bindtap='ranking20'>台湾Hito排行榜</view>
+    <view bindtap='ranking10'>日本Oricon周榜</view>
+    <view bindtap='ranking12'>韩国Mnet排行榜周榜</view>
+    <view bindtap='ranking15'>中国TOP排行榜(内地榜)</view>
   </view>
   <view class='list' wx:for='{{list}}'>
     <view class='left'>

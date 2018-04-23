@@ -3,8 +3,8 @@
     "pages/index/index",
     "pages/play/play",
     "pages/collection/collection",
-    "pages/bluetooth/bluetooth",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/comment/comment"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,11 +29,6 @@
         "text": "播放"
       },
       {
-        "iconPath": "img/icon_range.png",
-        "selectedIconPath": "img/icon_range_click.png",
-        "pagePath": "pages/bluetooth/bluetooth",
-        "text": "蓝牙"
-      }, {
         "iconPath": "img/icon_classification.png",
         "selectedIconPath": "img/icon_classification_click.png",
         "pagePath": "pages/collection/collection",

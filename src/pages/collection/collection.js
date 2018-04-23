@@ -62,17 +62,15 @@ Page({
 
     // 播放列表中不存在的话，添加进去
     if (!playList.find(item => item.id === id)) {
-      playList.push(song);
+      playList.push(tempSong);
     }
     // 更新全局变量 id
     global.id = id;
 
     wx.switchTab({
       url: '/pages/play/play',
-      success: function (res) {
-      },
-      fail: function (err) {
-      }
+      success: function (res) {},
+      fail: function (err) {}
     })
   }
 })

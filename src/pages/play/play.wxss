@@ -85,6 +85,14 @@
   height: 50rpx;
 }
 
+.footer .comment {
+  width: 45rpx;
+  height: 45rpx;
+  position: absolute;
+  left: -100rpx;
+  bottom: 18rpx;
+}
+
 .footer .center {
   width: 70rpx;
   height: 70rpx;

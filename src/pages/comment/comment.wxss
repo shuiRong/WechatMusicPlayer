@@ -1,0 +1,57 @@
+.container {
+  padding: 0 40rpx;
+}
+
+.container>text {
+  margin: 25rpx 0;
+  padding-left: 10rpx;
+}
+
+.list {
+  margin: 10rpx;
+  margin-bottom: 25rpx;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+  min-height: 100rpx;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.list>text {
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.list .top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  font-size: 35rpx;
+}
+
+.list .count {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.list image {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.newComment {
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0;
+  background: #fff;
+  padding: 20rpx;
+  box-shadow: 0 -10px 12px 0 rgba(0, 0, 0, .1);
+}

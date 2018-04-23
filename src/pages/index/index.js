@@ -17,15 +17,15 @@ Page({
     });
     let _this = this;
     wx.request({
-      url: 'http://localhost:3000/top/list?idx=1',
+      url: 'https://linshuirong.cn/top/list?idx=1',
       success: function (res) {
         _this.setData({
           list: res.data.playlist.tracks
         })
       },
-      fail: function (err) {
-      }
+      fail: function (err) {}
     })
+   
   },
   toPlay: function (e) {
     let global = app.globalData;
@@ -53,10 +53,8 @@ Page({
 
     wx.switchTab({
       url: '/pages/play/play',
-      success: function (res) {
-      },
-      fail: function (err) {
-      }
+      success: function (res) {},
+      fail: function (err) {}
     })
   }
 })

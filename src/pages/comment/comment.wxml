@@ -1,0 +1,27 @@
+<view class="container">
+  <text>精彩评论</text>
+  <view class='hotComments' wx:for='{{hotComments}}'>
+    <view class='list'>
+      <view class='top'>
+        <image class="userinfo-avatar" src="{{item.user.avatarUrl}}" background-size="cover"></image>
+        <text>{{item.user.nickname}}</text>
+        <text class='count'>{{item.likedCount}}</text>
+      </view>
+      <text>{{item.content}}</text>
+    </view>
+  </view>
+  <text>最新评论</text>
+  <view class='comment' wx:for='{{comments}}'>
+    <view class='list'>
+      <view class='top'>
+        <image class="userinfo-avatar" src="{{item.user.avatarUrl}}" background-size="cover"></image>
+        <text>{{item.user.nickname}}</text>
+        <text class='count'>{{item.likedCount}}</text>
+      </view>
+      <text>{{item.content}}</text>
+    </view>
+  </view>
+  <view class='newComment'>
+    <input bindconfirm='newComment' placeholder="添加评论..." auto-focus/>
+  </view>
+</view>

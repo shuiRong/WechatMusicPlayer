@@ -55,7 +55,7 @@ Page({
 
     if (id) {
       wx.request({
-        url: 'http://localhost:3000/music/url?id=' + id,
+        url: 'https://linshuirong.cn/music/url?id=' + id,
         success: function (res) {
           let mp3 = res.data.data[0].url
           _this.setMp3(mp3)
@@ -102,7 +102,7 @@ Page({
   getLyric: function (id) {
     let _this = this;
     wx.request({
-      url: 'http://localhost:3000/lyric?id=' + id,
+      url: 'https://linshuirong.cn/lyric?id=' + id,
       success: function (res) {
         _this.setData({
           lyric: res.data.lrc.lyric.replace(/\[.*\]/g, ''),
@@ -154,7 +154,7 @@ Page({
     const _this = this;
     // 获取歌曲详情
     wx.request({
-      url: 'http://localhost:3000/song/detail?ids=' + prevSongID,
+      url: 'https://linshuirong.cn/song/detail?ids=' + prevSongID,
       success: function (res) {
         res = res.data.songs[0]
         _this.setBAM({
@@ -168,7 +168,7 @@ Page({
     });
     // 获取歌曲mp3 链接
     wx.request({
-      url: 'http://localhost:3000/music/url?id=' + prevSongID,
+      url: 'https://linshuirong.cn/music/url?id=' + prevSongID,
       success: function (res) {
         let mp3 = res.data.data[0].url
         if (mp3) {
@@ -213,7 +213,7 @@ Page({
     const _this = this;
     // 获取歌曲详情
     wx.request({
-      url: 'http://localhost:3000/song/detail?ids=' + nextSongID,
+      url: 'https://linshuirong.cn/song/detail?ids=' + nextSongID,
       success: function (res) {
         res = res.data.songs[0]
         _this.setBAM({
@@ -227,7 +227,7 @@ Page({
     });
     // 获取歌曲mp3 链接
     wx.request({
-      url: 'http://localhost:3000/music/url?id=' + nextSongID,
+      url: 'https://linshuirong.cn/music/url?id=' + nextSongID,
       success: function (res) {
         let mp3 = res.data.data[0].url
         if (mp3) {
@@ -281,6 +281,9 @@ Page({
     });
   },
   setMp3: function (mp3) {
+    if (!mp3) {
+      return;
+    }
     // 设置背景音乐的相关属性
     const bam = wx.getBackgroundAudioManager();
     const _this = this;
@@ -325,7 +328,7 @@ Page({
         _this.getLyric(nextSong.id);
         // 获取歌曲链接
         wx.request({
-          url: 'http://localhost:3000/music/url?id=' + nextSong.id,
+          url: 'https://linshuirong.cn/music/url?id=' + nextSong.id,
           success: function (res) {
             let mp3 = res.data.data[0].url
             _this.setMp3(mp3)
@@ -398,4 +401,32 @@ Page({
       sliderIsChanging: false
     })
   },
+  commentHandler: function () {
+    // 评论页
+    wx.navigateTo({
+      url: '/pages/comment/comment'
+    })
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title: `${this.data.title}`,
+      path: '/pages/play/play',
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+        wx.showToast({
+          title: '转发失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    }
+  }
 })

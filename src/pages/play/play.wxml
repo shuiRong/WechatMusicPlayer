@@ -26,10 +26,12 @@
     <view>
       <view class='slider'>
         <text>{{currentTime}}</text>
-        <slider bindtouchstart='touchStart' bindtouchend='touchEnd' bindchange="sliderChange" min="0" max="100" value='{{sliderValue}}' />
+        <slider bindtouchstart='touchStart' bindtouchend='touchEnd' bindchange="sliderChange" min="0" max="100" value='{{sliderValue}}'
+        />
         <text>{{endTime}}</text>
       </view>
       <view class='control'>
+        <image bindtap='commentHandler' src='/img/comment.svg' class='side comment' background-size="cover"></image>
         <image bindtap='prevHandler' src='/img/prev.svg' class='side' background-size="cover"></image>
         <image bindtap='mainHandler' src='{{playIcon}}' class='center' background-size="cover"></image>
         <image bindtap='nextHandler' src='/img/next.svg' class='side' background-size="cover"></image>
