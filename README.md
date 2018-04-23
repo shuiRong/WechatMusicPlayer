@@ -41,4 +41,4 @@ git clone https://github.com/shuiRong/WechatMusicPlayer.git
 
 
 
-[^如何获取]: 注册并登录微信公众平台：https://mp.weixin.qq.com （账号类型选择小程序），然后在微信公众平台页面，找到左侧下方的设置—>开发设置—>AppID
+[^如何获取]: 注册并登录[微信公众平台](https://mp.weixin.qq.com) （账号类型选择小程序），然后在微信公众平台页面，找到左侧下方的设置—>开发设置—>AppID
